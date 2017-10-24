@@ -35,7 +35,7 @@ app.get('/posts/:id', (req, res) => {
     .then(post => res.json(post.apiRepr()))
     .catch(e => {
       console.error(e);
-      res.status(500).json({error: 'something went horribly awry'});
+      res.status(500).json({error: 'something went terrible wrong!'});
     });
 });
 
@@ -60,7 +60,7 @@ app.post('/posts', (req, res) => {
     .then(blogPost => res.status(201).json(blogPost.apiRepr()))
     .catch(e => {
       console.error(e);
-      res.status(500).json({error: 'Something went wrong'});
+      res.status(500).json({error: 'Something went way wrong'});
     });
 
 });
@@ -74,7 +74,7 @@ app.delete('/posts/:id', (req, res) => {
     })
     .catch(e => {
       console.error(e);
-      res.status(500).json({error: 'something went terribly wrong'});
+      res.status(500).json({error: 'something went totally wrong! Get back in there and fix it maggot!'});
     });
 });
 
@@ -97,7 +97,7 @@ app.put('/posts/:id', (req, res) => {
   BlogPost
     .findByIdAndUpdate(req.params.id, {$set: updated}, {new: true})
     .then(updatedPost => res.status(204).end())
-    .catch(e => res.status(500).json({message: 'Something went wrong'}));
+    .catch(e => res.status(500).json({message: 'Something went wrong... hey dev, are you fixing this or what?'}));
 });
 
 // Delete
@@ -124,7 +124,7 @@ function runServer(databaseUrl=DATABASE_URL, port=PORT) {
         return reject(e);
       }
       server = app.listen(port, () => {
-        console.log(`Your app is listening on port ${port}`);
+        console.log(`Your app is listening on port ${port}. Let's get crackin'!`);
         resolve();
       })
         .on('error', e => {
@@ -138,7 +138,7 @@ function runServer(databaseUrl=DATABASE_URL, port=PORT) {
 function closeServer() {
   return mongoose.disconnect().then(() => {
     return new Promise((resolve, reject) => {
-      console.log('Closing server');
+      console.log('Closing server, todays work is done boys!');
       server.close(e => {
         if (e) {
           return reject(e);
