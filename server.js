@@ -24,7 +24,7 @@ app.get('/posts', (req, res) => {
     })
     .catch(e => {
       console.error(e);
-      res.status(500).json({error: 'something went terribly wrong'});
+      res.status(500).json({error: 'something went awefully wrong'});
     });
 });
 
